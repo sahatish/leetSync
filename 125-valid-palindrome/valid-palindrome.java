@@ -1,33 +1,13 @@
 class Solution {
-    public static boolean isPalindrome(String str) {
-
-        int start = 0;
-        int end = str.length()-1; 
-
-        while(start < end){
-            // left alpha numeric
-            if(!Character.isLetterOrDigit(str.charAt(start))){
-            start ++;
-            continue;
-            }
-
-             if(!Character.isLetterOrDigit(str.charAt(end))){
-               end --;
-               continue;
-               
+    public boolean isPalindrome(String s) {
+        int left = 0, right = s.length() - 1;
+        while (left < right) {
+            while (left < right && !Character.isLetterOrDigit(s.charAt(left))) left++;
+            while (left < right && !Character.isLetterOrDigit(s.charAt(right))) right--;
+            if (Character.toLowerCase(s.charAt(left)) != Character.toLowerCase(s.charAt(right))) return false;
+            left++;
+            right--;
         }
-        if(Character.toLowerCase(str.charAt(start)) != Character.toLowerCase(str.charAt(end))){
-            return false;
+        return true;
     }
-     start++;
-     end-- ;
-
-} 
-return true;
-}
-
-public static void main(String[] args){
-    String s =  "A man, a plan, a canal: Panama";
-    System.out.println(s + " is a palindrome" + isPalindrome(s));
-}
 }
