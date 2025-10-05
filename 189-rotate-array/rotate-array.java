@@ -2,7 +2,7 @@ import java.util.*;
 class Solution {
     public static void rotate(int[] nums, int k) {
         int n = nums.length;
-        k = k % n;
+        k = k % n; // if k > n, then its work
 
         reverse(nums, 0, n-1);
         reverse(nums, 0, k-1);
