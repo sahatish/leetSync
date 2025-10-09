@@ -20,3 +20,29 @@ class Solution {
         return maxWater;
     }
 }
+ // brute force
+//   public class Main{
+//     public static int containerwithmostWater(int[] arr){ 
+        
+//         int maxWater = 0;
+//         int n = arr.length;
+        
+//         for(int i = 0; i< n; i++){
+//             for(int j = i + 1; j<n; j++){
+                
+//                 int  width = j - i ;
+//                 int height = Math.min(arr[i], arr[j]);
+//                 int  Water = width * height;
+                
+//                 maxWater = Math.max(maxWater,Water);
+                
+//             }
+//         }
+//         return maxWater;
+//     }
+    
+//     public static void main(String[] args){
+//         int [] arr = {1,8,6,2,5,2,4,8,3,7};
+//         System.out.println("containerwithmostWater :" + containerwithmostWater(arr));
+//     }
+// }
