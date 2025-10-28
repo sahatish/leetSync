@@ -1,37 +1,33 @@
 import java.util.Stack;
 
 class MyQueue {
-    Stack<Integer> s1;
-    Stack<Integer> s2;
+    private Stack<Integer> input;
+    private Stack<Integer> output;
 
     public MyQueue() {
-        s1 = new Stack<>();
-        s2 = new Stack<>();
+        input = new Stack<>();
+        output = new Stack<>();
     }
 
     public void push(int x) {
-        s1.push(x); // always push into s1
+        input.push(x);
     }
 
     public int pop() {
-        if (s2.isEmpty()) {
-            while (!s1.isEmpty()) {
-                s2.push(s1.pop()); // transfer all elements to s2
-            }
-        }
-        return s2.pop();
+        peek(); // ensure output has current front
+        return output.pop();
     }
 
     public int peek() {
-        if (s2.isEmpty()) {
-            while (!s1.isEmpty()) {
-                s2.push(s1.pop()); // transfer if needed
+        if (output.isEmpty()) {
+            while (!input.isEmpty()) {
+                output.push(input.pop());
             }
         }
-        return s2.peek();
+        return output.peek();
     }
 
     public boolean empty() {
-        return s1.isEmpty() && s2.isEmpty();
+        return input.isEmpty() && output.isEmpty();
     }
 }
